@@ -1,5 +1,13 @@
 function result=GetRelativePhase(Txant,Rxant1,Rxant2,Subc,RawCSI)
-%获取相对相位差，相对相位差为两个接收方天线相位的差值，而差值较直接测量要跟家稳定，需要选择两个Rx端的天线
+% Get relative csi amplitude
+%
+% RawCSI: input csi file
+% Txant:Tx antenna
+% Rxant1:Rx antenna1
+% Rxant2:Rx antenna2
+% Subc: Subcarrier Number
+%
+% Author: LBJ
 csi = get_scaled_csi(RawCSI);
 csi1 = squeeze(csi(Txant,Rxant1,:));
 csi2= squeeze(csi(Txant,Rxant2,:));

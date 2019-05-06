@@ -1,5 +1,5 @@
 function result=AutoGetAPIUsingCondition(filename)
-%filename为用户callback代码
+
 f = fopen(filename,'rb');
 if (f < 0)
     error('Couldn''t open file %s',filename);
@@ -23,7 +23,7 @@ while feof(f) ==0
     for i=1:size(csiFunctionName,1)  
       matches=[];
       str=sprintf('%s',csiFunctionName(i,:));
-      str(find(isspace(str))) = [] ;%直接用csiFunctionName(i,:)的话，在函数名后会有空格，原因是要和字符串数组中最长的字符串对齐，所以要去除空格
+      str(find(isspace(str))) = [] ;
       matches=findstr(tline,str);
 
       if length(matches)>0

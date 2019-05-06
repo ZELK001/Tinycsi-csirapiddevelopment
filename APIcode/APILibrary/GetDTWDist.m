@@ -1,19 +1,19 @@
 function dist = DTW(t,r)
-%Dynamic Time Warping 动态时间规整DTW是一个典型的优化问题
-%它的本质是一种衡量两个长度不同的时间序列的相似度的方法
+% Dynamic time warping (DTW) is a typical optimization problem
+% Its essence is a method to measure the similarity of two time series with different lengths
 n = size(t,1);
 m = size(r,1);
-% 帧匹配距离矩阵
+% Frame matching distance matrix
 d = zeros(n,m);
 for i = 1:n
     for j = 1:m
         d(i,j) = sum((t(i,:)-r(j,:)).^2);
     end
 end
-% 累积距离矩阵
+% Cumulative distance matrix
 D = ones(n,m) * realmax;
 D(1,1) = d(1,1);
-% 动态规划
+% dynamic programming
 for i = 2:n
     for j = 1:m
         D1 = D(i-1,j);

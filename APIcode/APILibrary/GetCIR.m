@@ -1,5 +1,7 @@
 function ret=GetCIR(csi_st)
-%获取原始CSI值，经过get_scaled_csi是一个相对值，用法类似于get_scaled_csi()
+% Get CIR
+%
+% csi_st: input csi file
 % Pull out CSI
     csi = csi_st.csi;
 
@@ -38,10 +40,6 @@ function ret=GetCIR(csi_st)
     if csi_st.Ntx == 2
         ret = ret * sqrt(2);
     elseif csi_st.Ntx == 3
-        % Note: this should be sqrt(3)~ 4.77 dB. But, 4.5 dB is how
-        % Intel (and some other chip makers) approximate a factor of 3
-        %
-        % You may need to change this if your card does the right thing.
         ret = ret * sqrt(dbinv(4.5));
     end
 end

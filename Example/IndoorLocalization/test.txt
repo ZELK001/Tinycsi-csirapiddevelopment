@@ -1,0 +1,55 @@
+﻿
+
+%IntrusionDetectionMain.m				  
+SERVER_PORT1 = 8099;
+SERVER_PORT2 = 8089;
+SensingServer.CloseSocket();
+
+% 1. Initialization Configurations
+Samplerate = 0.05;
+Duration = 600;
+SilentRange=[1,10];
+Detectionwinlen=10;
+DistanceRx=1;
+% 2. Parse settings for the callback
+global PS;
+PS=struct();
+PS.Samplerate=Samplerate;
+PS.Duration=Duration;
+PS.SilentRange=SilentRange;
+PS.Detectionwinlen=Detectionwinlen;
+PS.DistanceRx=DistanceRx;
+
+
+% 3. Create Sensing server with callback
+sensingserver1=SensingServer(SERVER_PORT1,@IndoorLocalizationCallback);
+sensingserver2=SensingServer(SERVER_PORT2,@IndoorLocalizationCallback);
+x=DistanceRx/(cos(sensingserver1)+cos(sensingserver2));
+y=tan(sensingserver1)*x;
+
+
+%IndoorLocalizationCallback.m
+function Result=IndoorLocalizationCallback(context,action,CSIdata)
+
+global PS;
+CSI_D1_ant1=CSIdata(1,1);
+CSI_D1_ant2=CSIdata(1,2);
+CSI_D1_ant3=CSIdata(1,3);
+   
+CSI_D1_Sensor(1:30)= CSI_D1_ant1';
+CSI_D1_Sensor(31:60)= CSI_D1_ant2';
+CSI_D1_Sensor(61:90)= CSI_D1_ant3';
+   
+
+
+% 1. Get the silent environment threshold
+if  action == context.CALLBACK_INIT 
+   
+% 2. Detect intrusion in real time
+else if  action == context.CALLBACK_WINDOWDATA
+    AoASet=GetAoAUsingMUSIC(CSI_D1_Sensor);
+    MeanAoA=GetMean(AoASet);
+    Result=MeanAoA;
+end
+
+end

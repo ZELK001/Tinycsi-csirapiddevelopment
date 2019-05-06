@@ -1,0 +1,48 @@
+
+
+%IntrusionDetectionMain.m				  
+SERVER_PORT = 8099;
+SensingServer.CloseSocket();
+
+% 1. Initialization Configurations
+Samplerate = 0.05;
+Duration = 600;
+SilentRange=[1,10];
+Detectionwinlen=10;
+% 2. Parse settings for the callback
+global PS;
+PS=struct();
+PS.Samplerate=Samplerate;
+PS.Duration=Duration;
+PS.SilentRange=SilentRange;
+PS.Detectionwinlen=Detectionwinlen;
+PS.thres=0;
+PS.ratio=5;
+
+
+% 3. Create Sensing server with callback
+sensingserver=SensingServer(SERVER_PORT,@IntrusionDetectionCallback);
+
+
+%IntrusionDetectionCallback.m
+function DetectionResult=IntrusionDetectionCallback(context,action,CSIdata)
+
+global PS;
+Amplitude=GetAmplitude(1,1,15,CSIdata);
+PreprocessData=ButterworthFilter(Amplitude,20,5,4,'low');
+
+% 1. Get the silent environment threshold
+if  action == context.CALLBACK_INIT
+   PS.thres=GetVar(Preprocess); 
+   
+% 2. Detect intrusion in real time
+else if  action == context.CALLBACK_WINDOWDATA
+   Result=GetVar(PreprocessData);
+        if(Result>(PS.thres*PS.ratio))
+          print("Intrusion!");
+		else
+		  PS.thres=Result;
+		end
+end
+
+end
