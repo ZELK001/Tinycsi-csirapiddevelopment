@@ -1,9 +1,9 @@
-#TinyCSI
+# TinyCSI
 A rapid development platform for CSI-based sensing systems.TinyCSI provides a Matlab/C-based library and a Graphical
 
 User Interface (GUI) for developers to quickly realize their ideas.
 
-##Feature
+## Feature
 
 * The first API library and hide node connection/transmission details to ease the development of these systems.
  
@@ -14,7 +14,7 @@ User Interface (GUI) for developers to quickly realize their ideas.
   nodes and server; A standalone mode for individually producing sensing results on the node in offline environments.
   
 
-##CSI-based Sensing System
+## CSI-based Sensing System
 
 
 In modern WiFi networks, the communication channel using Orthogonal Frequency Division Multiplexing (OFDM) comprises 
@@ -36,7 +36,7 @@ We classify existing CSI-based sensing systems into three major categories, i.e.
 CSI fingerprinting.
 
 
-#Remote Mode
+# Remote Mode
 In the remote mode, TinyCSI provides a GUI for developers to iteratively validate and tune their callback functions. With
 
 the API library and visualization of TinyCSI, developers can rapidly determine their callback functions (including both
@@ -44,9 +44,9 @@ the API library and visualization of TinyCSI, developers can rapidly determine t
 algorithms and parameters) to adapt to different environments.
 
 
-##Install
+## Install
 
-###Prerequisites
+### Prerequisites
 
 * Matlab 2014b or later (see uicontrol compatibility for an earlier version).
 
@@ -54,7 +54,7 @@ algorithms and parameters) to adapt to different environments.
 
 * Network connections between  Matlab machine and Sensing Node.
 
-###Setup
+### Setup
 * Copy Tinycsi-csirapiddevelopment\APIcode\Platform\Server\servercode.jar to MATLAB\R2014b\sys\java\jre\win64\jre\lib\ext.
 
 * Init csi sampling code on Sensing Node 
@@ -63,7 +63,7 @@ algorithms and parameters) to adapt to different environments.
 * Startup the Sensing Node,then connect to wireless router(WiFi).
 
 
-###Usage
+### Usage
 * Run MatLab,Let's use our MotionDetection as an example. In this example,Matlab server is programmed to ask the 
 
   connected  device to get real csi data for analyzing the frequency response between Tx and Rx.
@@ -82,7 +82,7 @@ algorithms and parameters) to adapt to different environments.
 * Sensingserver receives csi data and analysize the data.
 * 
 
-#Middle Mode
+# Middle Mode
 
 
-#Standalone Mode
+# Standalone Mode
