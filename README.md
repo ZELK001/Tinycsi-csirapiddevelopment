@@ -60,7 +60,15 @@ algorithms and parameters) to adapt to different environments.
 * Init csi sampling code on Sensing Node 
 
 
-* Startup the Sensing Node,then connect to wireless router(WiFi).
+* Startup the sensing node,use ssh to connect to the node and run WiFiStartup.sh to connect to wireless router.
+
+* Then start to collect the csi data:
+```
+  cd humandetectionusingcsi/code/display/onlineDisplay
+  
+  ./collectCSIShownRealTime.sh (Sampling Rate) (PC IP Address) (csidata filename)
+```
+ 
 
 
 ### Usage
@@ -80,7 +88,7 @@ algorithms and parameters) to adapt to different environments.
 * Let Sensing node connect to sensingserver, and start sampling csi.
 
 * Sensingserver receives csi data and analysize the data.
-* 
+
 
 # Middle Mode
 
