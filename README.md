@@ -90,7 +90,8 @@ algorithms and parameters) to adapt to different environments.
 * Sensingserver receives csi data and analysize the data.
 
 
-# Middle Mode
-
+# Efficient Mode
+In the efficient mode, TinyCSI seeks the best resource allocation scheme (i.e., which APIs run on the node and which run on the server) to minimize the system sensing delay. The efficient mode is designed for making full use of the computing resources and improve system efficiency.
 
 # Standalone Mode
+In the standalone mode, the whole sensing system can be migrated to individual nodes and run without connecting to the remote server. The standalone mode is designed for offline sensing systems when the deployment environment cannot meet networking requirements.
