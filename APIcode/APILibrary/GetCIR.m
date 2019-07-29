@@ -36,7 +36,8 @@ function ret=GetCIR(csi_st)
     total_noise_pwr = thermal_noise_pwr + quant_error_pwr;
 
     % Ret now has units of sqrt(SNR) just like H in textbooks
-    ret = csi * sqrt(scale );
+    ret = csi * sqrt(scale);
+	ret= ifft(ret);
     if csi_st.Ntx == 2
         ret = ret * sqrt(2);
     elseif csi_st.Ntx == 3

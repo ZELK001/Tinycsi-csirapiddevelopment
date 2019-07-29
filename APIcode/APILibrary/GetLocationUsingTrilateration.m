@@ -1,4 +1,4 @@
-function [locx,locy] =GetLocationUsingTriposition(xa,ya,da,xb,yb,db,xc,yc,dc)
+function [locx,locy] =GetLocationUsingTrilateration(xa,ya,da,xb,yb,db,xc,yc,dc)
 %  Reference node A£¨xa,ya£©,B(xb,yb),C(xc,yc)
 %  Location node D(locx,locy),The distances to these three points are da,db,dc
 % £¨locx£¬locy): Calculated position coordinates of location node D
