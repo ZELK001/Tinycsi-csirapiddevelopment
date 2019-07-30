@@ -1106,6 +1106,7 @@ body .markdown-body
 <li><a href="#get_mean">GetMean()</a></li>
 <li><a href="#get_max">GetMAX()</a></li>
 <li><a href="#get_min">GetMIN()</a></li>
+<li><a href="#get_max">GetRange()</a></li>
 <li><a href="#get_min">GetDTWDist()</a></li>
 <li><a href="#get_min">GetConvolution()</a></li>
 <li><a href="#get_min">DataInterpolation()</a></li>
@@ -1140,6 +1141,9 @@ body .markdown-body
 <li><a href="#">Supervised Learning Module</a><ul>
 <li><a href="#">KNNClassifier()</a></li>
 <li><a href="#">SVMClassifer()</a></li>
+<li><a href="#">DecisionTreeClassifer()</a></li>
+<li><a href="#">NaiveBayesianClassifer()</a></li>
+<li><a href="#">LogisticRegressionClassifer()</a></li>
 </ul>
 </li>
 
@@ -1601,6 +1605,31 @@ GetMAX(csimeasurement)</li>
 minimum</li>
 </ul>
 
+<h4>GetRange()</h4>
+<ul>
+<li><strong>Description</strong><br>
+Get range</li>
+<li><strong>Syntax</strong><br>
+GetRange(csimeasurement)</li>
+<li><strong>Parameters</strong><br>
+<strong>csimeasurement</strong>:csidata</li>
+<li><strong>Return</strong><br>
+range</li>
+</ul>
+
+<h4>GetDTWDist()</h4>
+<ul>
+<li><strong>Description</strong><br>
+Get DTW Distance</li>
+<li><strong>Syntax</strong><br>
+GetDTWDist(csidata1,csidata2)</li>
+<li><strong>Parameters</strong><br>
+<strong>csidata</strong>:csidata</li>
+<li><strong>Return</strong><br>
+DTW Distance between two arrays</li>
+</ul>
+
+
 <h4>GetConvolution()</h4>
 <ul>
 <li><strong>Description</strong><br>
@@ -1772,6 +1801,35 @@ kernel(X,Y,type)</li>
 <strong>X</strong>: train data</li>
 <strong>Y</strong>: test data</li>
 <strong>type</strong>: train tag</li>
+</li>
+<li><strong>Return</strong><br>
+prediction result</li>
+</ul>
+
+<h4>DecisionTreeClassifier()</h4>
+<ul>
+<li><strong>Description</strong><br>
+Decision Tree</li>
+<li><strong>Syntax</strong><br>
+DecisionTree(testdata,traindata,traintag)</li>
+<li><strong>Parameters</strong><br>
+<strong>traindata</strong>: train data</li>
+<strong>testdata</strong>: test data</li>
+<strong>traintag</strong>: train tag</li>
+</li>
+<li><strong>Return</strong><br>
+prediction result</li>
+</ul>
+
+<h4>NaiveBayesianClassifier()</h4>
+<ul>
+<li><strong>Description</strong><br>
+Naive Bayesian</li>
+<li><strong>Syntax</strong><br>
+NaiveBayesian(data,traintag)</li>
+<li><strong>Parameters</strong><br>
+<strong>data</strong>: data</li>
+<strong>traintag</strong>: train tag</li>
 </li>
 <li><strong>Return</strong><br>
 prediction result</li>
