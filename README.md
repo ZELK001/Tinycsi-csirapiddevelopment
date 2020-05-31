@@ -25,7 +25,7 @@ transmitter to the receiver at a granularity of subcarrier level. Some COTS NICs
 
 upper layer applications. For example, Intel 5300 NIC can report CSI measurements of 30 subcarriers for each received
  
-WiFi packet [9]. Each CSI measurement is a complex value representing the signal fading on a specific subcarrier.
+WiFi packet. Each CSI measurement is a complex value representing the signal fading on a specific subcarrier.
 
 Due to the ubiquitous WiFi signals, CSI-based approaches have been widely studied to achieve device-free sensing.
 
