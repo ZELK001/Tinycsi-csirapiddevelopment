@@ -50,7 +50,7 @@ algorithms and parameters) to adapt to different environments.
 
 * Matlab 2014b or later (see uicontrol compatibility for an earlier version).
 
-* Sensing nodes (Humming Board equipped with Intel 5300 NIC. The CSI tool http://dhalperi.github.io/linux-80211n-csitool/index.html is installed on the nodes) and a commercial wireless router (WiFi AP). 
+* Sensing nodes (Humming Board equipped with Intel 5300 NIC. The[ CSI tool] (http://dhalperi.github.io/linux-80211n-csitool/index.html) is installed on the nodes) and a commercial wireless router (WiFi AP). 
 
 * Network connections between  Matlab machine and Sensing Node.
 
